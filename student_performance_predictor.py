@@ -36,7 +36,7 @@ def traimodel(df: pan.DataFrame) -> LinearRegression:
     
     y = df[target]
 
-    X_train, X_test, y_train, y_test = train_test_split(
+    Xtrain, Xtest, ytrain, ytest = train_test_split(
         X, y, test_size=0.2, random_state=42
     )
 
@@ -44,12 +44,12 @@ def traimodel(df: pan.DataFrame) -> LinearRegression:
 
 
     
-    model.fit(X_train, y_train)
+    model.fit(Xtrain, ytrain)
 
-    predictions = model.predict(X_test)
+    predictions = model.predict(Xtest)
     
-    mae = mean_absolute_error(y_test, predictions)
-    r2 = r2_score(y_test, predictions)
+    mae = mean_absolute_error(ytest, predictions)
+    r2 = r2_score(ytest, predictions)
 
     print("\nModel trained successfully.")
     print(f"MAE: {mae:.2f}")
@@ -57,7 +57,8 @@ def traimodel(df: pan.DataFrame) -> LinearRegression:
     print(f"R² Score: {r2:.2f}")
     return model
 
-def get_float_input(prompt: str, min_value: float, max_value: float) -> float:
+
+def getfloatinput(prompt: str, min_value: float, max_value: float) -> float:
            
             while True:
                 value = input(prompt).strip()
@@ -73,20 +74,20 @@ def get_float_input(prompt: str, min_value: float, max_value: float) -> float:
                     print("Please enter a valid number")
 
 
-def predict_marks(model: LinearRegression) -> None:
+def predictmarks(model: LinearRegression) -> None:
     
     print("\nEnter student details to predict marks:")
     
-    studhours = get_float_input("Study hours per day (0-12): ", 0, 12)
+    studhours = getfloatinput("Study hours per day (0-12): ", 0, 12)
     
-    sleephours = get_float_input("Sleep hours per day (0-12): ", 0, 12)
-    attndancepercent = get_float_input("Attendance percentage (0-100): ", 0, 100)
+    sleephours = getfloatinput("Sleep hours per day (0-12): ", 0, 12)
+    attndancepercent = getfloatinput("Attendance percentage (0-100): ", 0, 100)
 
     input_df = pan.DataFrame(
         {
-            "studhours": [study_hours],
-            "sleephours": [sleep_hours],
-            "attndancepercent": [attendance_percent],
+            "study hours": [studhours],
+            "sleep hours": [sleephours],
+            "attendance percent": [attndancepercent],
         }
     )
 
@@ -104,7 +105,7 @@ def main() -> None:
         model = traimodel(df)
     
         while True:
-            predict_marks(model)
+            predictmarks(model)
             again = input("\nPredict again? (yes/no): ").strip().lower()
             if again not in {"yes", "y"}:
                 print("Good luck with your studies!")
