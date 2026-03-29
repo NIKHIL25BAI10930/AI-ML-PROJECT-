@@ -14,7 +14,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 
 
-        def builddataset() -> pan.DataFrame:
+def builddataset() -> pan.DataFrame:
             
             data = {
                 "studhours": [1, 2, 3, 4, 5, 6, 7, 8, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5],
@@ -56,7 +56,6 @@ def traimodel(df: pan.DataFrame) -> LinearRegression:
     
     print(f"R² Score: {r2:.2f}")
     return model
-
 
 def get_float_input(prompt: str, min_value: float, max_value: float) -> float:
            
