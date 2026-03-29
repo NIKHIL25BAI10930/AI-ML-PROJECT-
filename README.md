@@ -73,5 +73,4 @@ This project helps you practice:
 
 ---
 
-hon
-- Structured data handling using Pandas
+
