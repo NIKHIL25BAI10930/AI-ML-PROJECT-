@@ -1,9 +1,9 @@
 """
 Student Performance Predictor
 Predict marks using Linear Regression based on:
-- study_hours
-- sleep_hours
-- attendance_percent
+- studhours
+- sleephours
+- attndancepercent
 """
 
 from __future__ import annotations
