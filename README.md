@@ -5,9 +5,9 @@ A simple machine learning project that predicts student marks using **Linear Reg
 
 ## Project Idea
 Predict marks based on:
-- Study hours
-- Sleep time
-- Attendance
+- Study hours ( amount of student spent while studying )
+- Sleep time  ( amount of time student invested during rest )
+- Attendance  ( total number of class in which student was present )
 
 ## Concepts Used
 
@@ -47,7 +47,7 @@ python student_performance_predictor.py
 
 ## How It Works
 
-1. Builds a sample student dataset
+1. Builds a sample containing student's dataset
 2. Trains a Linear Regression model
 3. Evaluates model performance using MAE and R2 score
 4. Takes user input for new student data
@@ -73,66 +73,5 @@ This project helps you practice:
 
 ---
 
-# Movie Recommendation System
-
-A content-based recommendation project that suggests movies based on user interests.
-
-## Project Idea
-
-Recommend movies based on:
-- User interest keywords
-- Genre preferences
-- Content similarity
-
-## Concepts Used
-
-- Recommendation systems
-- Content-based filtering
-- Cosine similarity
-- Text tokenization for matching
-
-## Tech Stack
-
-- Python
-- Pandas
-
-## Input and Output
-
-- **Input:** User interests (for example: `sci-fi space thriller`)
-- **Output:** Top recommended movies with match scores
-
-## Files
-
-- `movie_recommendation_system.py` - Main script for content-based movie recommendations
-
-## Run the Project
-
-```bash
-python movie_recommendation_system.py
-```
-
-## How It Works
-
-1. Creates a sample movie dataset with genres and keywords
-2. Converts user interests and movie content into normalized tokens
-3. Calculates similarity score between user profile and each movie
-4. Sorts movies by similarity (and rating as tie-breaker)
-5. Displays top recommendations
-
-## Example Input
-
-- `sci-fi thriller mind-bending`
-
-## Example Output
-
-- Inception
-- The Matrix
-- Interstellar
-
-## Learning Outcomes
-
-This project helps you practice:
-- Building a basic recommendation engine
-- Content-based filtering logic
-- Similarity scoring with Python
+hon
 - Structured data handling using Pandas
