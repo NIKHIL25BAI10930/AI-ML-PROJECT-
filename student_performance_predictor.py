@@ -14,22 +14,22 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 
 
-        def build_sample_dataset() -> pan.DataFrame:
-            """Create a small sample dataset for demonstration."""
+        def builddataset() -> pan.DataFrame:
+            
             data = {
-                "study_hours": [1, 2, 3, 4, 5, 6, 7, 8, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5],
-                "sleep_hours": [5, 6, 6, 7, 7, 8, 8, 7, 5.5, 6.5, 7, 7.5, 8, 6.5],
-                "attendance_percent": [60, 65, 70, 75, 80, 85, 90, 95, 68, 73, 78, 83, 88, 92],
+                "studhours": [1, 2, 3, 4, 5, 6, 7, 8, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5],
+                "sleephours": [5, 6, 6, 7, 7, 8, 8, 7, 5.5, 6.5, 7, 7.5, 8, 6.5],
+                "attndancepercent": [60, 65, 70, 75, 80, 85, 90, 95, 68, 73, 78, 83, 88, 92],
                 "marks": [35, 42, 50, 58, 65, 73, 82, 90, 46, 54, 61, 69, 78, 85],
             }
             return pan.DataFrame(data)
 
 
-def train_model(df: pan.DataFrame) -> LinearRegression:
+def traimodel(df: pan.DataFrame) -> LinearRegression:
 
 
     
-    features = ["study_hours", "sleep_hours", "attendance_percent"]
+    features = ["studhours", "sleephours", "attndancepercent"]
     target = "marks"
     X = df[features]
 
@@ -58,8 +58,8 @@ def train_model(df: pan.DataFrame) -> LinearRegression:
     return model
 
 
-        def get_float_input(prompt: str, min_value: float, max_value: float) -> float:
-            """Get validated float input from user."""
+def get_float_input(prompt: str, min_value: float, max_value: float) -> float:
+           
             while True:
                 value = input(prompt).strip()
                 try:
@@ -76,19 +76,18 @@ def train_model(df: pan.DataFrame) -> LinearRegression:
 
 def predict_marks(model: LinearRegression) -> None:
     
-    """Take user input and predict marks"""
     print("\nEnter student details to predict marks:")
     
-    study_hours = get_float_input("Study hours per day (0-12): ", 0, 12)
+    studhours = get_float_input("Study hours per day (0-12): ", 0, 12)
     
-    sleep_hours = get_float_input("Sleep hours per day (0-12): ", 0, 12)
-    attendance_percent = get_float_input("Attendance percentage (0-100): ", 0, 100)
+    sleephours = get_float_input("Sleep hours per day (0-12): ", 0, 12)
+    attndancepercent = get_float_input("Attendance percentage (0-100): ", 0, 100)
 
     input_df = pan.DataFrame(
         {
-            "study_hours": [study_hours],
-            "sleep_hours": [sleep_hours],
-            "attendance_percent": [attendance_percent],
+            "studhours": [study_hours],
+            "sleephours": [sleep_hours],
+            "attndancepercent": [attendance_percent],
         }
     )
 
@@ -97,13 +96,13 @@ def predict_marks(model: LinearRegression) -> None:
     print(f"\nPredicted Marks: {predicted_marks:.2f}/100")
 
 
-    def main() -> None:
+def main() -> None:
         print("=" * 50)
         print("Student Performance Predictor")
         print("=" * 50)
     
-        df = build_sample_dataset()
-        model = train_model(df)
+        df = builddataset()
+        model = traimodel(df)
     
         while True:
             predict_marks(model)
